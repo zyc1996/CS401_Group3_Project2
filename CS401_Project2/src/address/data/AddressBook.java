@@ -55,6 +55,7 @@ public class AddressBook {
      *       a choice in that. This method takes in an object for removal instead,
      *       and the choice granted by searching for last name is handled in the
      *       menu instead.
+     * Unsure if the above to do still applies when implement with GUI
      * @param e The entry removed from the list
      */
     public static void remove(AddressEntry e) { addresses.remove(e); }
@@ -138,16 +139,14 @@ public class AddressBook {
     }
 
     /**
-     * A method to populate the addresses list with formatted address entries from a file
-     * TODO: project 2 no longer reads from file, but reads from database instead
-     *  convert file reading code into reading from data base
+     * A method to populate the addresses list with data from Cloud
      */
     public static void readFromDB() throws ClassNotFoundException, SQLException {
 
         // code from data base exercise
         Class.forName ("oracle.jdbc.OracleDriver");
         Connection conn =
-                DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+                DriverManager.getConnection("jdbc:oracle:thin: Your_UserName_here / Your_PW_here @adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
         Statement stmt = conn.createStatement ();
         ResultSet rset = stmt.executeQuery("SELECT * FROM ADDRESSENTRYTABLE");
 
