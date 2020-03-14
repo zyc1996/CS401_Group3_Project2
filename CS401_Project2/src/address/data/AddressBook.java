@@ -146,7 +146,7 @@ public class AddressBook {
         // code from data base exercise
         Class.forName ("oracle.jdbc.OracleDriver");
         Connection conn =
-                DriverManager.getConnection("jdbc:oracle:thin: Your_UserName_here / Your_PW_here @adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+                DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
         Statement stmt = conn.createStatement ();
         ResultSet rset = stmt.executeQuery("SELECT * FROM ADDRESSENTRYTABLE");
 
