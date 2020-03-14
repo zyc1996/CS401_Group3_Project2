@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c486a30-84de-460e-b8df-1bad1e8d2c26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\yuche\Desktop\School Files\CSUEB\Spring2020\CS 401\CS401_Group3_Project2\CS401_Project2\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z7sgp2gLaDudDclZewlg2C0Xhe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yuche\Desktop\School Files\CSUEB\Spring2020\CS 401\CS401_Group3_Project2\CS401_Project2\src\data" />
+      <recent name="C:\Users\yuche\Desktop\School Files\CSUEB\Spring2020\CS 401\CS401_Group3_Project2\CS401_Project2\src\gui" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="address.AddressBookApplication" />
+      <module name="CS401_Project2" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c486a30-84de-460e-b8df-1bad1e8d2c26" name="Default Changelist" comment="" />
+      <created>1584201580887</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584201580887</updated>
+      <workItem from="1584201582411" duration="11312000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584201849662">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1584201849662" />
+    <state x="404" y="240" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584203256227">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="404" y="240" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1368.872@0.0.1368.872" timestamp="1584203256227" />
+    <state x="490" y="138" key="#com.intellij.ide.util.MemberChooser" timestamp="1584208526652">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="490" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1584208526652" />
+    <state x="415" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584201848108">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="415" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1368.872@0.0.1368.872" timestamp="1584201848108" />
+    <state x="465" y="192" key="FileChooserDialogImpl" timestamp="1584213670185">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="465" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1584213670185" />
+    <state width="1326" height="187" key="GridCell.Tab.0.bottom" timestamp="1584205662836">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="187" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584205662836" />
+    <state width="1326" height="187" key="GridCell.Tab.0.center" timestamp="1584205662836">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="187" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584205662836" />
+    <state width="1326" height="187" key="GridCell.Tab.0.left" timestamp="1584205662835">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="187" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584205662835" />
+    <state width="1326" height="187" key="GridCell.Tab.0.right" timestamp="1584205662836">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="187" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584205662836" />
+  </component>
+</project>
