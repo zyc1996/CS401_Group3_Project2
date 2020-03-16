@@ -10,6 +10,7 @@ public class RemoveDialog extends JDialog {
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField textField1;
+    private JLabel removeHeader;
 
     public RemoveDialog(AddressBook ab) {
         setContentPane(contentPane);
@@ -45,11 +46,14 @@ public class RemoveDialog extends JDialog {
     private void onOK(AddressBook ab) {
         // add your code here
         //On Okay, do stuff...
-        dispose();
-        MatchingDialog dialog = new MatchingDialog(textField1.getText(), ab);
-        dialog.pack();
-        dialog.setVisible(true);
-
+        if (textField1.getText().length() > 0 && ab.find(textField1.getText()).size() > 0) {
+            dispose();
+            MatchingDialog dialog = new MatchingDialog(textField1.getText(), ab);
+            dialog.pack();
+            dialog.setVisible(true);
+        } else {
+            removeHeader.setText("No matching entries were found");
+        }
     }
 
     private void onCancel() {

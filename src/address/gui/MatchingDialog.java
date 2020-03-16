@@ -60,7 +60,8 @@ public class MatchingDialog extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
+        int[] matches = MatchingList.getSelectedIndices();
+
         dispose();
     }
 
