@@ -169,14 +169,12 @@ public class AddressBookGui {
 
         if (entries != null && entries.size() > 0) {
             for (AddressEntry e : entries) {
-                //ID auto increment from data base sequence
-                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + e.getID() + "')");
+                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = (" + e.getID() + ")");
             }
         }
 
         stmt.close();
         conn.close();
     }
-
 
 }
