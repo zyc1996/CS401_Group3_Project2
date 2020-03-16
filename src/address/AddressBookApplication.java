@@ -5,8 +5,6 @@ package address;
  @version 1.2
  **/
 
-import address.data.AddressBook;
-import address.data.AddressEntry;
 import address.gui.AddressBookGui;
 
 import java.sql.SQLException;

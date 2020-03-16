@@ -138,9 +138,9 @@ public class AddressBookGui {
         allList.setLayoutOrientation(JList.VERTICAL);
         allList.setCellRenderer(new AddressEntryRenderer());
 
+        allList.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 0));
 
         myFrame = new JFrame("AddressBookGui");
-        myFrame.setSize(600,600);
         myFrame.setContentPane(mainPanel);
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrame.pack();
@@ -169,12 +169,14 @@ public class AddressBookGui {
 
         if (entries != null && entries.size() > 0) {
             for (AddressEntry e : entries) {
-                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = (" + e.getID() + ")");
+                //ID auto increment from data base sequence
+                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + e.getID() + "')");
             }
         }
 
         stmt.close();
         conn.close();
     }
+
 
 }

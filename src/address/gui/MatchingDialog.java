@@ -5,8 +5,6 @@ import address.data.AddressEntry;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MatchingDialog extends JDialog {
@@ -67,7 +65,11 @@ public class MatchingDialog extends JDialog {
 
     private List<AddressEntry> onOK(AddressBook ab) {
         dispose();
+        for (AddressEntry e: MatchingList.getSelectedValuesList()) {
+            System.out.println(e);
+        }
         return MatchingList.getSelectedValuesList();
+
     }
 
     private void onCancel() {

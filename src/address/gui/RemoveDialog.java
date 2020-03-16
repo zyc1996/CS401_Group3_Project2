@@ -47,6 +47,8 @@ public class RemoveDialog extends JDialog {
     }
 
     private void onOK(AddressBook ab) {
+        // add your code here
+        //On Okay, do stuff...
         if (textField1.getText().length() > 0 && ab.find(textField1.getText()).size() > 0) {
             dispose();
             MatchingDialog dialog = new MatchingDialog(textField1.getText(), ab);
@@ -63,6 +65,11 @@ public class RemoveDialog extends JDialog {
     }
 
     private void onCancel() {
+        // add your code here if necessary
         dispose();
+    }
+
+    public static void main(String[] args) {
+
     }
 }

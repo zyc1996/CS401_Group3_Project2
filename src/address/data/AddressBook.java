@@ -5,11 +5,8 @@ package address.data;
  @version 1.2
  **/
 
-import java.net.Inet4Address;
 import java.sql.*;
 import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 /**
  * The AddressBook class represents an AddressBook
@@ -207,5 +204,4 @@ public class AddressBook {
         conn.close();
 
     }
-
 }
