@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c486a30-84de-460e-b8df-1bad1e8d2c26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/address/gui/AddressEntryRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/AddressBookApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/AddressBookApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/data/AddressBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/data/AddressBook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/data/AddressEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/data/AddressEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS401_Project2/address/gui/AddressBookGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/AddressBookApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/AddressBookApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/data/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/data/AddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/data/AddressEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/data/AddressEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/AddDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/AddDialog.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/AddDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/AddDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/AddressBookGui.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/AddressBookGui.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/AddressBookGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/AddressBookGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/FindDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/FindDialog.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/FindDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/FindDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/RemoveDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/RemoveDialog.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/RemoveDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/RemoveDialog.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\yuche\Desktop\School Files\CSUEB\Spring2020\CS 401\CS401_Group3_Project2\CS401_Project2\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z7sgp2gLaDudDclZewlg2C0Xhe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/instantclient-basic-windows.x64-12.2.0.1.0/instantclient_12_2/ojdbc8.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yuche\Desktop\School Files\CSUEB\Spring2020\CS 401\CS401_Group3_Project2\CS401_Project2\src\data" />
+      <recent name="C:\Users\yuche\Desktop\School Files\CSUEB\Spring2020\CS 401\CS401_Group3_Project2\CS401_Project2\src\gui" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="address.AddressBookApplication" />
+      <module name="CS401_Project2" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c486a30-84de-460e-b8df-1bad1e8d2c26" name="Default Changelist" comment="" />
+      <created>1584201580887</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584201580887</updated>
+      <workItem from="1584201582411" duration="15719000" />
+      <workItem from="1584307051561" duration="11899000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="277" y="96" key="#Project_Structure" timestamp="1584328993494">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="277" y="96" key="#Project_Structure/0.0.1368.872@0.0.1368.872" timestamp="1584328993494" />
+    <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584201849662">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1584201849662" />
+    <state x="404" y="240" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584203256227">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="404" y="240" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1368.872@0.0.1368.872" timestamp="1584203256227" />
+    <state x="490" y="138" key="#com.intellij.ide.util.MemberChooser" timestamp="1584326411632">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="490" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1584326411632" />
+    <state x="415" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584324089688">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="415" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1368.872@0.0.1368.872" timestamp="1584324089688" />
+    <state x="465" y="192" key="FileChooserDialogImpl" timestamp="1584328991445">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="465" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1584328991445" />
+    <state width="1326" height="186" key="GridCell.Tab.0.bottom" timestamp="1584329003391">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="186" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584329003391" />
+    <state width="1326" height="186" key="GridCell.Tab.0.center" timestamp="1584329003390">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="186" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584329003390" />
+    <state width="1326" height="186" key="GridCell.Tab.0.left" timestamp="1584329003390">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="186" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584329003390" />
+    <state width="1326" height="186" key="GridCell.Tab.0.right" timestamp="1584329003391">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="186" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584329003391" />
+    <state width="1326" height="281" key="GridCell.Tab.1.bottom" timestamp="1584323948204">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="281" key="GridCell.Tab.1.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584323948204" />
+    <state width="1326" height="281" key="GridCell.Tab.1.center" timestamp="1584323948203">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="281" key="GridCell.Tab.1.center/0.0.1368.872@0.0.1368.872" timestamp="1584323948203" />
+    <state width="1326" height="281" key="GridCell.Tab.1.left" timestamp="1584323948203">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="281" key="GridCell.Tab.1.left/0.0.1368.872@0.0.1368.872" timestamp="1584323948203" />
+    <state width="1326" height="281" key="GridCell.Tab.1.right" timestamp="1584323948203">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="281" key="GridCell.Tab.1.right/0.0.1368.872@0.0.1368.872" timestamp="1584323948203" />
+    <state x="186" y="80" key="SettingsEditor" timestamp="1584328924970">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="186" y="80" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1584328924970" />
+    <state x="554" y="232" key="UIDesigner.ListEditorDialog" timestamp="1584312390223">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="554" y="232" key="UIDesigner.ListEditorDialog/0.0.1368.872@0.0.1368.872" timestamp="1584312390223" />
+    <state x="343" y="200" key="run.anything.popup" timestamp="1584327929789">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="343" y="200" key="run.anything.popup/0.0.1368.872@0.0.1368.872" timestamp="1584327929789" />
+  </component>
+</project>
