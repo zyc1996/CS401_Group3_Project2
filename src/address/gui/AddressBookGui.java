@@ -42,7 +42,7 @@ public class AddressBookGui {
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RemoveDialog dialog = new RemoveDialog();
+                RemoveDialog dialog = new RemoveDialog(ab);
                 dialog.pack();
                 dialog.setVisible(true);
             }

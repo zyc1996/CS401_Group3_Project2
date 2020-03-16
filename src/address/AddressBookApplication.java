@@ -32,6 +32,7 @@ public class AddressBookApplication {
         AB.add(new AddressEntry("test", "bay", "should be third in list",
                 "someplace", "somestate", 123, "email", "tel", 2));
         AB.list();
+
 //        Menu.getMenu();
 //
 //        boolean quit = false;

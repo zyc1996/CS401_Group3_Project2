@@ -1,23 +1,40 @@
 package address.gui;
 
 import address.data.AddressBook;
+import address.data.AddressEntry;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class RemoveDialog extends JDialog {
+public class MatchingDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textField1;
+    private DefaultListModel<AddressEntry> model;
+    private JList<AddressEntry> MatchingList;
 
-    public RemoveDialog(AddressBook ab) {
+    public MatchingDialog(String lname, AddressBook ab) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
+        model = new DefaultListModel<AddressEntry>();
+        List<AddressEntry> newList = ab.find(lname);
+
+        for(int i = 0; i < newList.size(); i++){
+            model.addElement(newList.get(i));
+        }
+
+        MatchingList.setModel(model);
+        MatchingList.setLayoutOrientation(JList.VERTICAL);
+        MatchingList.setCellRenderer(new AddressEntryRenderer());
+
         buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) { onOK(ab); }
+            public void actionPerformed(ActionEvent e) {
+                onOK();
+            }
         });
 
         buttonCancel.addActionListener(new ActionListener() {
@@ -42,22 +59,13 @@ public class RemoveDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK(AddressBook ab) {
+    private void onOK() {
         // add your code here
-        //On Okay, do stuff...
         dispose();
-        MatchingDialog dialog = new MatchingDialog(textField1.getText(), ab);
-        dialog.pack();
-        dialog.setVisible(true);
-
     }
 
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-
     }
 }
