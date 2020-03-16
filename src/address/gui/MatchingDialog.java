@@ -29,11 +29,11 @@ public class MatchingDialog extends JDialog {
 
         MatchingList.setModel(model);
         MatchingList.setLayoutOrientation(JList.VERTICAL);
-        MatchingList.setCellRenderer(new AddressEntryRenderer());
+        //MatchingList.setCellRenderer(new AddressEntryRenderer());
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onOK(ab);
             }
         });
 
@@ -59,9 +59,11 @@ public class MatchingDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        int[] matches = MatchingList.getSelectedIndices();
-
+    private void onOK(AddressBook ab) {
+        for (int i: MatchingList.getSelectedIndices()) {
+            System.out.println(i);
+            ab.remove(ab.getList().get(i));
+        }
         dispose();
     }
 

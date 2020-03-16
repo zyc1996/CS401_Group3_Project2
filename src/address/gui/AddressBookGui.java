@@ -80,7 +80,7 @@ public class AddressBookGui {
         }
         allList.setModel(model);
         allList.setLayoutOrientation(JList.VERTICAL);
-        allList.setCellRenderer(new AddressEntryRenderer());
+        //allList.setCellRenderer(new AddressEntryRenderer());
 
 
         myFrame = new JFrame("AddressBookGui");
