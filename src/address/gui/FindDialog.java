@@ -51,8 +51,4 @@ public class FindDialog extends JDialog {
         // add your code here if necessary
         dispose();
     }
-
-    public static void main(String[] args) {
-
-    }
 }

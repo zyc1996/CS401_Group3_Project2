@@ -128,8 +128,7 @@ public class AddDialog extends JDialog {
         }else{
             JOptionPane.showMessageDialog(null, result);
         }
-
-
+        
         dispose();
     }
 
