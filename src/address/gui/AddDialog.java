@@ -1,5 +1,7 @@
 package address.gui;
 
+import address.data.AddressEntry;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -15,6 +17,8 @@ public class AddDialog extends JDialog {
     private JTextField zipField;
     private JTextField phoneField;
     private JTextField emailField;
+
+    private AddressEntry ae;
 
     public AddDialog() {
         setContentPane(contentPane);
@@ -51,6 +55,81 @@ public class AddDialog extends JDialog {
 
     private void onOK() {
         // add your code here
+        Boolean valid = true;
+        AddressEntry newEntry = new AddressEntry();
+        String result = "";
+
+        String line = fNameField.getText();
+        if (line.length() == 0){
+            result = result + "First name is empty\n";
+            valid = false;
+        }else{
+            newEntry.getName().setFirstName(line);
+        }
+        line = lNameField.getText();
+        if (line.length() == 0){
+            result = result + "Last name is empty\n";
+            valid = false;
+        }else{
+            newEntry.getName().setLastName(line);
+        }
+        line = streetField.getText();
+        if (line.length() == 0){
+            result = result + "Street name is empty\n";
+            valid = false;
+        }else{
+            newEntry.getAddress().setStreet(line);
+        }
+        line = cityField.getText();
+        if (line.length() == 0){
+            result = result + "City is empty\n";
+            valid = false;
+        }else{
+            newEntry.getAddress().setCity(line);
+        }
+        line = stateField.getText();
+        if (line.length() == 0){
+            result = result + "State is empty\n";
+            valid = false;
+        }else{
+            newEntry.getAddress().setState(line);
+        }
+        try {
+            line = zipField.getText();
+            if (line.length() == 0){
+                result = result + "ZIP code is empty\n";
+                valid = false;
+            }else {
+                newEntry.getAddress().setZip(Integer.parseInt(line));
+            }
+        }catch (NumberFormatException e){
+            result = result + "ZIP code must be a number\n";
+            valid = false;
+        }
+        line = phoneField.getText();
+        if (line.length() == 0){
+            result = result + "Phone is empty\n";
+            valid = false;
+        }else{
+            newEntry.setPhone(line);
+        }
+        line = emailField.getText();
+        if (line.length() == 0){
+            result = result + "Email is empty\n";
+            valid = false;
+        }else{
+            newEntry.setEmail(line);
+        }
+        if(valid){
+            //ADD TO DATABASE
+            ae = newEntry;
+            JOptionPane.showMessageDialog(null, "Valid");
+            //dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, result);
+        }
+
+
         dispose();
     }
 
@@ -64,5 +143,9 @@ public class AddDialog extends JDialog {
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
+    }
+
+    public AddressEntry getEntry(){
+        return ae;
     }
 }

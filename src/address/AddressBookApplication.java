@@ -8,6 +8,8 @@ package address;
 import address.data.AddressBook;
 import address.data.AddressEntry;
 import address.gui.AddressBookGui;
+
+import java.sql.SQLException;
 //import address.data.Menu;
 
 /**
@@ -18,20 +20,21 @@ public class AddressBookApplication {
      * The main method to start the address.AddressBookApplication
      * @param args Arguments to accept when calling main
      */
-    public static void main(String[] args) {
-        AddressBook AB = new AddressBook();
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+//        AddressBook AB = new AddressBook();
         AddressBookGui myGui = new AddressBookGui();
-        myGui.init();
 
-        AB.add(new AddressEntry("test", "abc", "somewhere 123",
-                "someplace", "somestate", 123, "email", "tel", 1));
-        AB.add(new AddressEntry("test", "dude", "somewhere 123",
-                "someplace", "somestate", 123, "email", "tel", 2));
-        AB.add(new AddressEntry("test", "abc", "somewhere new, should be 1st in list",
-                "someplace", "somestate", 123, "email", "tel", 3));
-        AB.add(new AddressEntry("test", "bay", "should be third in list",
-                "someplace", "somestate", 123, "email", "tel", 2));
-        AB.list();
+//        AB.add(new AddressEntry("test", "abc", "somewhere 123",
+//                "someplace", "somestate", 123, "email", "tel", 1));
+//        AB.add(new AddressEntry("test", "dude", "somewhere 123",
+//                "someplace", "somestate", 123, "email", "tel", 2));
+//        AB.add(new AddressEntry("test", "abc", "somewhere new, should be 1st in list",
+//                "someplace", "somestate", 123, "email", "tel", 3));
+//        AB.add(new AddressEntry("test", "bay", "should be third in list",
+//                "someplace", "somestate", 123, "email", "tel", 2));
+//        AB.list();
+
+        myGui.init();
 
 //        Menu.getMenu();
 //

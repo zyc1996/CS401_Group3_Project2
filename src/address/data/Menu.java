@@ -1,24 +1,23 @@
-package address.data;
-/**
- @author Lauren Dennedy
- @since February 2020
- @version 1.2
- **/
-
-/**
- * this class is probably no longer needed but leaving it here just in case
- */
-
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Scanner;
-
-/**
- * The Menu class represents the menu the user
- * interacts with at the console level
- */
+//package address.data; /**
+// @author Lauren Dennedy
+// @since February 2020
+// @version 1.2
+// **/
+//
+///**
+// * this class is probably no longer needed but leaving it here just in case
+// */
+//
+//
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.util.List;
+//import java.util.Scanner;
+//
+///**
+// * The Menu class represents the menu the user
+// * interacts with at the console level
+// */
 //public class Menu {
 //    /**
 //     * Single Menu instance (singleton)

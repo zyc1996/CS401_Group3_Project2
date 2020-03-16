@@ -44,7 +44,7 @@ public class AddressBook {
      * Add an entry to the AddressBook's addresses list
      * @param e The entry added to the list
      */
-    public void add(AddressEntry e) {
+    public void add(AddressEntry e){
         AddressEntry result;
         for (int i = 0; i < addresses.size(); i++) {
             result = addresses.get(i);
@@ -68,27 +68,35 @@ public class AddressBook {
             }
         }
         addresses.add(e);
-
-        /**
-         * Remove an entry from the AddressBook's addresses list
-         * TODO: This method cannot remove solely on the case of lastName alone, because
-         *       then it could remove more than one entry at a time and the user needs
-         *       a choice in that. This method takes in an object for removal instead,
-         *       and the choice granted by searching for last name is handled in the
-         *       menu instead.
-         * Unsure if the above to do still applies when implement with GUI
-         * @param e The entry removed from the list
-         */
     }
 
-    public void remove(AddressEntry e) { addresses.remove(e); }
+    /**
+     * Remove an entry from the AddressBook's addresses list
+     * TODO: This method cannot remove solely on the case of lastName alone, because
+     *       then it could remove more than one entry at a time and the user needs
+     *       a choice in that. This method takes in an object for removal instead,
+     *       and the choice granted by searching for last name is handled in the
+     *       menu instead.
+     * Unsure if the above to do still applies when implement with GUI
+     * @param e The entry removed from the list
+     */
+    public void remove(AddressEntry e) throws SQLException {
+        addresses.remove(e);
+
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+        Statement stmt = conn.createStatement ();
+        stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = " + e.getID());
+
+        stmt.close();
+        conn.close();
+    }
 
     /**
      * Prints out the entries of the addresses list with their toString methods
      */
-    public void list(){
+    public void list() {
         for (AddressEntry e: addresses) {
-            System.out.print(addresses.indexOf(e) + 1);
+            System.out.print(addresses.indexOf(e) + 1 + ". ");
             System.out.println(e);
         }
     }
@@ -106,7 +114,7 @@ public class AddressBook {
         return newList;
     }
 
-     /**
+    /**
      * Finds entries matching a string of the last name.
      * @param startOfLastName The string of the last name to search entries for
      * @return A list of matching entries
@@ -165,10 +173,12 @@ public class AddressBook {
      */
     public void readFromDB() throws ClassNotFoundException, SQLException {
 
+        addresses.clear();
+
         // code from data base exercise
         Class.forName ("oracle.jdbc.OracleDriver");
         Connection conn =
-                DriverManager.getConnection("jdbc:oracle:thin: Your_UserName_here / Your_PW_here @adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+                DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
         Statement stmt = conn.createStatement ();
         ResultSet rset = stmt.executeQuery("SELECT * FROM ADDRESSENTRYTABLE");
 
@@ -197,4 +207,5 @@ public class AddressBook {
         conn.close();
 
     }
+
 }
