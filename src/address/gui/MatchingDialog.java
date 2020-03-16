@@ -14,6 +14,7 @@ public class MatchingDialog extends JDialog {
     private JButton buttonOK;
     private JButton buttonCancel;
     private DefaultListModel<AddressEntry> model;
+    private List<AddressEntry> selected;
     private JList<AddressEntry> MatchingList;
 
     public MatchingDialog(String lname, AddressBook ab) {
@@ -34,7 +35,7 @@ public class MatchingDialog extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK(ab);
+                selected = onOK(ab);
             }
         });
 
@@ -60,21 +61,17 @@ public class MatchingDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK(AddressBook ab) {
-        for (int i: MatchingList.getSelectedIndices()) {
-            System.out.println(i);
-            System.out.println(MatchingList.getSelectedValuesList().get(i));
-            //In progress
-            /*
-            try {
-                ab.remove(MatchingList.getSelectedValuesList().get(i));
-            } catch (SQLException e) {
+    public List<AddressEntry> getSelected() {
+        return selected;
+    }
 
-            }
-            *
-             */
-        }
+    private List<AddressEntry> onOK(AddressBook ab) {
         dispose();
+        for (AddressEntry e: MatchingList.getSelectedValuesList()) {
+            System.out.println(e);
+        }
+        return MatchingList.getSelectedValuesList();
+
     }
 
     private void onCancel() {

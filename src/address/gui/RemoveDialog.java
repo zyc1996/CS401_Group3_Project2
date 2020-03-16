@@ -1,9 +1,11 @@
 package address.gui;
 
 import address.data.AddressBook;
+import address.data.AddressEntry;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class RemoveDialog extends JDialog {
     private JPanel contentPane;
@@ -11,6 +13,7 @@ public class RemoveDialog extends JDialog {
     private JButton buttonCancel;
     private JTextField textField1;
     private JLabel removeHeader;
+    private List<AddressEntry> selected;
 
     public RemoveDialog(AddressBook ab) {
         setContentPane(contentPane);
@@ -51,9 +54,14 @@ public class RemoveDialog extends JDialog {
             MatchingDialog dialog = new MatchingDialog(textField1.getText(), ab);
             dialog.pack();
             dialog.setVisible(true);
+            selected = dialog.getSelected();
         } else {
             removeHeader.setText("No matching entries were found");
         }
+    }
+
+    public List<AddressEntry> getSelected() {
+        return selected;
     }
 
     private void onCancel() {

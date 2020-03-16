@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddressBookGui {
      JFrame myFrame;
@@ -79,6 +80,34 @@ public class AddressBookGui {
                 RemoveDialog dialog = new RemoveDialog(ab);
                 dialog.pack();
                 dialog.setVisible(true);
+
+
+                // In progress
+                //push the new entry to data base
+                try {
+                    removeFromDB(dialog.getSelected());
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+                //fresh read of contents from from database
+                try {
+                    ab.readFromDB();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+                //clear for a fresh model
+                ArrayList<AddressEntry> newList = ab.getList();
+                model.clear();
+                for(int i = 0; i < newList.size(); i++){
+                    model.addElement(newList.get(i));
+                }
+                allList.setModel(model);
             }
         });
         findButton.addActionListener(new ActionListener() {
@@ -132,25 +161,22 @@ public class AddressBookGui {
         conn.close();
     }
 
-    // Method in progress
-    /*
-    public void removeFromDB(ArrayList<AddressEntry> entries) throws ClassNotFoundException, SQLException {
+    public void removeFromDB(List<AddressEntry> entries) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
         Statement stmt = conn.createStatement();
 
-        for (AddressEntry e: entries) {
-            //ID auto increment from data base sequence
-            stmt.executeQuery("INSERT INTO ADDRESSENTRYTABLE VALUES ('" + e.getName().getFirstName() + "', " + null +
-                    ", '" + e.getName().getLastName() + "', '" + e.getAddress().getStreet() + "', '" +
-                    e.getAddress().getCity() + "', '" + e.getAddress().getState() + "', " + e.getAddress().getZip() +
-                    ", '" + e.getEmail() + "', '" + e.getPhone() + "')");
+        if (entries != null && entries.size() > 0) {
+            for (AddressEntry e : entries) {
+                //ID auto increment from data base sequence
+                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + e.getID() + "')");
+            }
         }
 
         stmt.close();
         conn.close();
     }
 
-     */
+
 }
