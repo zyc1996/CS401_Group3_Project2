@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c486a30-84de-460e-b8df-1bad1e8d2c26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/AddDialog.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/AddDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/AddressBookGui.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/FindDialog.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/FindDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/RemoveDialog.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/address/gui/RemoveDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/AddressBook.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/AddressBookApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/AddressEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/AddressInputDataFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS401_Project2/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/AddressBookApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/AddressBookApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/data/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/data/AddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/data/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/data/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/address/gui/AddressBookGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/gui/AddressBookGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +89,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584201580887</updated>
-      <workItem from="1584201582411" duration="11312000" />
+      <workItem from="1584201582411" duration="15719000" />
+      <workItem from="1584307051561" duration="3889000" />
     </task>
     <servers />
   </component>
@@ -104,21 +121,25 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="465" y="192" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1584213670185" />
-    <state width="1326" height="187" key="GridCell.Tab.0.bottom" timestamp="1584205662836">
+    <state width="1326" height="186" key="GridCell.Tab.0.bottom" timestamp="1584312461254">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="187" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584205662836" />
-    <state width="1326" height="187" key="GridCell.Tab.0.center" timestamp="1584205662836">
+    <state width="1326" height="186" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584312461254" />
+    <state width="1326" height="186" key="GridCell.Tab.0.center" timestamp="1584312461254">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="187" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584205662836" />
-    <state width="1326" height="187" key="GridCell.Tab.0.left" timestamp="1584205662835">
+    <state width="1326" height="186" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584312461254" />
+    <state width="1326" height="186" key="GridCell.Tab.0.left" timestamp="1584312461253">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="187" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584205662835" />
-    <state width="1326" height="187" key="GridCell.Tab.0.right" timestamp="1584205662836">
+    <state width="1326" height="186" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584312461253" />
+    <state width="1326" height="186" key="GridCell.Tab.0.right" timestamp="1584312461254">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="187" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584205662836" />
+    <state width="1326" height="186" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584312461254" />
+    <state x="554" y="232" key="UIDesigner.ListEditorDialog" timestamp="1584312390223">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="554" y="232" key="UIDesigner.ListEditorDialog/0.0.1368.872@0.0.1368.872" timestamp="1584312390223" />
   </component>
 </project>

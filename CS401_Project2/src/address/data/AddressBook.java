@@ -1,4 +1,5 @@
-package address.data; /**
+package address.data;
+/**
  @author Lauren Dennedy
  @since February 2020
  @version 1.2
@@ -17,36 +18,57 @@ import java.io.FileNotFoundException;
  */
 public class AddressBook {
     /**
-     * Single AddressBook instance (singleton)
-     */
-    private static AddressBook addressBook = null;
-
-    /**
      * List of AddressEntry objects to comprise the AddressBook
      */
-    private static ArrayList<AddressEntry> addresses;
+    private ArrayList<AddressEntry> addresses;
 
     /**
      * Private constructor to initialize the singleton and the addresses list
      */
-    private AddressBook() { addresses = new ArrayList<>(); }
-
-    /**
-     * Public AddressBook Getter to call the private constructor
-     * @return the AddressBook to be used as the singleton
-     */
-    public static AddressBook getAddressBook() {
-        if (addressBook == null) {
-            addressBook = new AddressBook();
-        }
-        return addressBook;
+    public AddressBook() {
+        addresses = new ArrayList<>();
     }
+
+//    /**
+//     * Public AddressBook Getter to call the private constructor
+//     * @return the AddressBook to be used as the singleton
+//     */
+//    public AddressBook getAddressBook() {
+//        if (addressBook == null) {
+//            addressBook = new AddressBook();
+//        }
+//        return addressBook;
+//    }
 
     /**
      * Add an entry to the AddressBook's addresses list
      * @param e The entry added to the list
      */
-    public static void add(AddressEntry e) { addresses.add(e); }
+    public void add(AddressEntry e) {
+        AddressEntry result;
+        for (int i = 0; i < addresses.size(); i++) {
+            result = addresses.get(i);
+
+            //compare new objects last name to current element's last name
+            if (e.getName().getLastName().toLowerCase().compareTo(result.getName().getLastName().toLowerCase()) <= 0) {
+
+                //if we are here, then new object's last name is either equal to list object's last name
+                // or ahead of it alphabetically, we check if last names are equal here
+                if (e.getName().getLastName().toLowerCase().compareTo(result.getName().getLastName().toLowerCase()) == 0) {
+
+                    //if last names are equal, check first name
+                    //if first names are also equal, simply add at current index
+                    if (e.getName().getLastName().toLowerCase().compareTo(result.getName().getFirstName().toLowerCase()) <= 0) {
+                        addresses.add(i, e);
+                        return;
+                    }
+                }
+                addresses.add(i, e);
+                return;
+            }
+        }
+        addresses.add(e);
+    }
 
     /**
      * Remove an entry from the AddressBook's addresses list
@@ -58,27 +80,25 @@ public class AddressBook {
      * Unsure if the above to do still applies when implement with GUI
      * @param e The entry removed from the list
      */
-    public static void remove(AddressEntry e) { addresses.remove(e); }
+    public void remove(AddressEntry e) throws SQLException {
+        addresses.remove(e);
+
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+        Statement stmt = conn.createStatement ();
+        stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = " + e.getID());
+
+        stmt.close();
+        conn.close();
+    }
 
     /**
      * Prints out the entries of the addresses list with their toString methods
      */
-    public static void list() {
+    public void list() {
         for (AddressEntry e: addresses) {
-            System.out.print(addresses.indexOf(e) + 1);
+            System.out.print(addresses.indexOf(e) + 1 + ". ");
             System.out.println(e);
         }
-    }
-
-    /**
-     * Sorts the addresses list using comparators for the ID of an entry
-     */
-    public static void sort() {
-        // Compares ID
-        Comparator<AddressEntry> IDComparator = Comparator.comparing(AddressEntry::getID);
-
-        // sort by comparing ID
-        Collections.sort(addresses, IDComparator);
     }
 
     /**
@@ -86,10 +106,7 @@ public class AddressBook {
      * @param startOfLastName The string of the last name to search entries for
      * @return A list of matching entries
      */
-    public static List<AddressEntry> find(String startOfLastName) {
-        // Make sure list is sorted first
-        sort();
-
+    public List<AddressEntry> find(String startOfLastName) {
         // Final list of all matching entries
         List<AddressEntry> matchingEntries = new ArrayList<>();
 
@@ -141,7 +158,9 @@ public class AddressBook {
     /**
      * A method to populate the addresses list with data from Cloud
      */
-    public static void readFromDB() throws ClassNotFoundException, SQLException {
+    public void readFromDB() throws ClassNotFoundException, SQLException {
+
+        addresses.clear();
 
         // code from data base exercise
         Class.forName ("oracle.jdbc.OracleDriver");
@@ -166,8 +185,7 @@ public class AddressBook {
             tel = rset.getString(9);
 
             //add and sort
-            AddressBook.add(new AddressEntry(fName, lName, street, city, state, zip, email, tel, ID));
-            AddressBook.sort();
+            this.add(new AddressEntry(fName, lName, street, city, state, zip, email, tel, ID));
         }
 
         // REMEMBER ALL THE CLOSING STATEMENT | VERY IMPORTANT
