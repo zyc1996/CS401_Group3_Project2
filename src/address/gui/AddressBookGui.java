@@ -131,4 +131,26 @@ public class AddressBookGui {
         stmt.close();
         conn.close();
     }
+
+    // Method in progress
+    /*
+    public void removeFromDB(ArrayList<AddressEntry> entries) throws ClassNotFoundException, SQLException {
+        Class.forName("oracle.jdbc.OracleDriver");
+        Connection conn =
+                DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+        Statement stmt = conn.createStatement();
+
+        for (AddressEntry e: entries) {
+            //ID auto increment from data base sequence
+            stmt.executeQuery("INSERT INTO ADDRESSENTRYTABLE VALUES ('" + e.getName().getFirstName() + "', " + null +
+                    ", '" + e.getName().getLastName() + "', '" + e.getAddress().getStreet() + "', '" +
+                    e.getAddress().getCity() + "', '" + e.getAddress().getState() + "', " + e.getAddress().getZip() +
+                    ", '" + e.getEmail() + "', '" + e.getPhone() + "')");
+        }
+
+        stmt.close();
+        conn.close();
+    }
+
+     */
 }

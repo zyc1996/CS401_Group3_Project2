@@ -63,11 +63,16 @@ public class MatchingDialog extends JDialog {
     private void onOK(AddressBook ab) {
         for (int i: MatchingList.getSelectedIndices()) {
             System.out.println(i);
+            System.out.println(MatchingList.getSelectedValuesList().get(i));
+            //In progress
+            /*
             try {
-                ab.remove(ab.getList().get(i));
+                ab.remove(MatchingList.getSelectedValuesList().get(i));
             } catch (SQLException e) {
 
             }
+            *
+             */
         }
         dispose();
     }
