@@ -30,9 +30,7 @@
         <children>
           <component id="f4462" class="javax.swing.JList" binding="findList">
             <constraints/>
-            <properties>
-              <model/>
-            </properties>
+            <properties/>
           </component>
         </children>
       </scrollpane>

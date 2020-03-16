@@ -44,7 +44,7 @@ public class AddressBook {
      * Add an entry to the AddressBook's addresses list
      * @param e The entry added to the list
      */
-    public void add(AddressEntry e) {
+    public void add(AddressEntry e){
         AddressEntry result;
         for (int i = 0; i < addresses.size(); i++) {
             result = addresses.get(i);
@@ -99,6 +99,19 @@ public class AddressBook {
             System.out.print(addresses.indexOf(e) + 1 + ". ");
             System.out.println(e);
         }
+    }
+
+    public ArrayList<AddressEntry> getList(){
+        // One option would be to
+        // return (ArrayList<AddressEntry>)addresses.clone();
+        // but this generates a warning for an unchecked cast, we will use a slower/safer method
+        ArrayList<AddressEntry> newList = new ArrayList<AddressEntry>();
+
+        for (AddressEntry e: addresses) {
+            newList.add(e);
+        }
+
+        return newList;
     }
 
     /**
@@ -194,4 +207,5 @@ public class AddressBook {
         conn.close();
 
     }
+
 }

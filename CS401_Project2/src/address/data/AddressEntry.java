@@ -100,6 +100,14 @@ public class AddressEntry {
     public void setEmail(String email) { this.email = email; }
 
     /**
+     * setter for ID variable
+     * @param ID the id number
+     */
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    /**
      * ID Code Getter
      * @return the zip code as an integer
      */
