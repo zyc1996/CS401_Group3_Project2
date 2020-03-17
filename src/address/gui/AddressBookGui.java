@@ -10,11 +10,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AddressBookGui {
-    JFrame myFrame;
+     JFrame myFrame;
 
     private JPanel mainPanel;
     private JButton addButton;
@@ -27,6 +26,7 @@ public class AddressBookGui {
     private DefaultListModel<AddressEntry> findModel;
     private JScrollPane allPane;
     private JScrollPane findPane;
+    private JButton editButton;
     private AddressBook ab;
 
     public AddressBookGui() {
@@ -37,7 +37,7 @@ public class AddressBookGui {
                 dialog.pack();
                 dialog.setVisible(true);
                 //create a temporary addressEntry object to hold the return value
-                AddressEntry newEntry = new AddressEntry();
+                AddressEntry newEntry;
                 newEntry = dialog.getEntry();
 
                 //push the new entry to data base
@@ -109,6 +109,23 @@ public class AddressBookGui {
                     model.addElement(newList.get(i));
                 }
                 allList.setModel(model);
+
+                //clear for a fresh model
+
+                List<AddressEntry> existing = new ArrayList<AddressEntry>();
+                for (int i = 0; i < findModel.size(); i++) {
+                    existing.add(findModel.get(i));
+                }
+
+                List<AddressEntry> removed = dialog.getSelected();
+                findModel.clear();
+                for(int i = 0; i < existing.size(); i++){
+                    if (existing.get(i) != removed.get(0)) {
+                        findModel.addElement(existing.get(i));
+                    }
+                }
+
+                findList.setModel(findModel);
             }
         });
 
@@ -126,6 +143,48 @@ public class AddressBookGui {
                     findModel.addElement(selected.get(i));
                 }
                 findList.setModel(findModel);
+            }
+        });
+
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddressEntry toEdit = new AddressEntry();
+                toEdit = findList.getSelectedValue();
+                EditDialog dialog = new EditDialog(toEdit);
+                dialog.pack();
+                dialog.setVisible(true);
+
+                //gets the returned change from edit dialog
+                toEdit = dialog.getEdited();
+
+                //Update changes to Database
+                try {
+                    editDB(toEdit);
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+                //fresh read of contents from from database
+                try {
+                    ab.readFromDB();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+                //clear for a fresh model
+                ArrayList<AddressEntry> newList = ab.getList();
+                model.clear();
+                for(int i = 0; i < newList.size(); i++){
+                    model.addElement(newList.get(i));
+                }
+                allList.setModel(model);
+
+                //clear for a fresh model
             }
         });
     }
@@ -149,6 +208,18 @@ public class AddressBookGui {
         allList.setLayoutOrientation(JList.VERTICAL);
         allList.setCellRenderer(new AddressEntryRenderer());
         allList.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 0));
+
+        // Set to something...
+        /*
+        ArrayList<AddressEntry> selected = new ArrayList<>();
+
+        if (findList != null || findList.size() < 1) {
+            for(int i = 0; i < newList.size(); i++){
+                findModel.addElement(selected.get(i));
+            }
+        }
+        *
+         */
 
         findModel = new DefaultListModel<AddressEntry>();
         findList.setModel(findModel);
@@ -193,4 +264,23 @@ public class AddressBookGui {
         stmt.close();
         conn.close();
     }
+
+    public void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+        Class.forName("oracle.jdbc.OracleDriver");
+        Connection conn =
+                DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
+        Statement stmt = conn.createStatement();
+        //ID auto increment from data base sequence
+        stmt.executeQuery("UPDATE ADDRESSENTRYTABLE SET FIRSTNAME = '" + e.getName().getFirstName() +
+                        "', LASTNAME = '" + e.getName().getLastName() +
+                        "', STREET = '" + e.getAddress().getStreet() +
+                        "', CITY = '" + e.getAddress().getCity() +
+                        "', STATE = '" + e.getAddress().getState() +
+                        "', ZIP = " + e.getAddress().getZip() +
+                        ", EMAIL = '" + e.getEmail() +
+                        "', PHONE = '" + e.getPhone() + "' WHERE ID = " + e.getID());
+        stmt.close();
+        conn.close();
+    }
+
 }
