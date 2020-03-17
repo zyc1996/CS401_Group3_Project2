@@ -149,18 +149,6 @@ public class AddressBookGui {
         allList.setCellRenderer(new AddressEntryRenderer());
         allList.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 0));
 
-        // Set to something...
-        /*
-        ArrayList<AddressEntry> selected = new ArrayList<>();
-
-        if (findList != null || findList.size() < 1) {
-            for(int i = 0; i < newList.size(); i++){
-                findModel.addElement(selected.get(i));
-            }
-        }
-        *
-         */
-
         findModel = new DefaultListModel<AddressEntry>();
         findList.setModel(findModel);
         findList.setLayoutOrientation(JList.VERTICAL);
