@@ -29,7 +29,7 @@ public class MatchingDialog extends JDialog {
 
         MatchingList.setModel(model);
         MatchingList.setLayoutOrientation(JList.VERTICAL);
-        //MatchingList.setCellRenderer(new AddressEntryRenderer());
+        MatchingList.setCellRenderer(new AddressEntryRenderer());
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
