@@ -24,6 +24,7 @@ public class AddressBookGui {
     private JList<AddressEntry> allList;
     private JList<AddressEntry> findList;
     private DefaultListModel<AddressEntry> model;
+    private DefaultListModel<AddressEntry> findModel;
     private JScrollPane allPane;
     private JScrollPane findPane;
     private AddressBook ab;
@@ -113,9 +114,17 @@ public class AddressBookGui {
         findButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FindDialog dialog = new FindDialog();
+                FindDialog dialog = new FindDialog(ab);
                 dialog.pack();
                 dialog.setVisible(true);
+
+                //clear for a fresh model
+                List<AddressEntry> selected = dialog.getSelected();
+                findModel.clear();
+                for(int i = 0; i < selected.size(); i++){
+                    findModel.addElement(selected.get(i));
+                }
+                findList.setModel(findModel);
             }
         });
     }
@@ -134,11 +143,29 @@ public class AddressBookGui {
         for(int i = 0; i < newList.size(); i++){
             model.addElement(newList.get(i));
         }
+
         allList.setModel(model);
         allList.setLayoutOrientation(JList.VERTICAL);
         allList.setCellRenderer(new AddressEntryRenderer());
-
         allList.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 0));
+
+        // Set to something...
+        /*
+        ArrayList<AddressEntry> selected = new ArrayList<>();
+
+        if (findList != null || findList.size() < 1) {
+            for(int i = 0; i < newList.size(); i++){
+                findModel.addElement(selected.get(i));
+            }
+        }
+        *
+         */
+
+        findModel = new DefaultListModel<AddressEntry>();
+        findList.setModel(findModel);
+        findList.setLayoutOrientation(JList.VERTICAL);
+        findList.setCellRenderer(new AddressEntryRenderer());
+        findList.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 0));
 
         myFrame = new JFrame("AddressBookGui");
         myFrame.setContentPane(mainPanel);
