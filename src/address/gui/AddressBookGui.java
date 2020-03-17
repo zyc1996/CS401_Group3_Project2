@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressBookGui {
-     JFrame myFrame;
+    JFrame myFrame;
 
     private JPanel mainPanel;
     private JButton addButton;
@@ -65,9 +65,9 @@ public class AddressBookGui {
                     model.addElement(newList.get(i));
                 }
                 allList.setModel(model);
-
             }
         });
+
         quitProgramButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,13 +75,13 @@ public class AddressBookGui {
                 System.exit(0);
             }
         });
+
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RemoveDialog dialog = new RemoveDialog(ab);
                 dialog.pack();
                 dialog.setVisible(true);
-
 
                 // In progress
                 //push the new entry to data base
@@ -111,6 +111,7 @@ public class AddressBookGui {
                 allList.setModel(model);
             }
         });
+
         findButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -192,6 +193,4 @@ public class AddressBookGui {
         stmt.close();
         conn.close();
     }
-
-
 }
