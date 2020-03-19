@@ -105,7 +105,7 @@ public class AddressBook {
         // Comparator to find the first item containing
         Comparator<String> containsComparator = (o1, o2) -> {
             // Modified comparator so any string containing the first chars of last name is considered a complete match
-            if (o1.toLowerCase().startsWith(o2.toLowerCase())) {
+            if (o1.toLowerCase().contains(o2.toLowerCase())) {
                 return 0;
             } else {
                 return o1.toLowerCase().compareTo(o2.toLowerCase());
