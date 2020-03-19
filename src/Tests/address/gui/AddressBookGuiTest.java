@@ -131,6 +131,10 @@ public class AddressBookGuiTest {
             }
         }
 
+<<<<<<< Updated upstream
         assertEquals(ae.toString(),ae2.toString()); //WHY ARE THEY NOT EQUAL??????????????????????????
+=======
+        assertEquals(ae.toString(),ae2.toString());
+>>>>>>> Stashed changes
     }
 }

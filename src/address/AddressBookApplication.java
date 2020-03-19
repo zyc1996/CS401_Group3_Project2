@@ -14,6 +14,8 @@ public class AddressBookApplication {
     /**
      * The main method that starts the program GUI
      * @param args Arguments to accept when calling main
+     * @throws SQLException Possible failure in executing SQL
+     * @throws ClassNotFoundException Possible class not found
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         /**
