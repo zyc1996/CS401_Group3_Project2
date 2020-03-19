@@ -141,8 +141,10 @@ public class AddressBookGui {
                 //clear for a fresh model
                 List<AddressEntry> selected = dialog.getSelected();
                 findModel.clear();
-                for(int i = 0; i < selected.size(); i++){
-                    findModel.addElement(selected.get(i));
+                if (selected != null) {
+                    for(int i = 0; i < selected.size(); i++){
+                        findModel.addElement(selected.get(i));
+                    }
                 }
                 findList.setModel(findModel);
             }
