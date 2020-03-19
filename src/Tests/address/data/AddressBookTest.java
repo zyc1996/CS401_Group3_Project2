@@ -1,8 +1,5 @@
 package address.data;
-<<<<<<< Updated upstream
-=======
 import org.junit.Before;
->>>>>>> Stashed changes
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.sql.SQLException;
@@ -15,12 +12,6 @@ import java.util.ArrayList;
  * Purpose: The JUnit class for testing the AddressBook class
  */
 public class AddressBookTest {
-<<<<<<< Updated upstream
-    private AddressBook testBook = new AddressBook();
-    private Name aeName = new Name("Hello", "Goodbye");
-    private Address aeAddress = new Address("street", "city", "state", 6832);
-    private AddressEntry ae = new AddressEntry("email", "phone", aeName, aeAddress, 5);
-=======
     /**
      * AddressBook class testing object
      */
@@ -40,7 +31,6 @@ public class AddressBookTest {
      * AddressEntry class testing object
      */
     private AddressEntry ae;
->>>>>>> Stashed changes
 
     /**
      * Helper method to initialize variables before every test

@@ -59,10 +59,7 @@ public class AddressBook {
      * Remove an entry from the AddressBook
      * Removes the entry from the addresses list
      * @param e The entry to remove from the Address Book
-<<<<<<< Updated upstream
-=======
      * @throws SQLException Possible failure in executing SQL
->>>>>>> Stashed changes
      */
     public void remove(AddressEntry e) throws SQLException {
         //remove the entry from the list
@@ -107,11 +104,8 @@ public class AddressBook {
 
     /**
      * A method to populate the addresses list with data from the cloud
-<<<<<<< Updated upstream
-=======
      * @throws ClassNotFoundException Possible class not found
-     * @throws SQLException Possible failure in executing SQL
->>>>>>> Stashed changes
+     * @throws SQLException Possible failure executing SQL
      */
     public void readFromDB() throws ClassNotFoundException, SQLException {
 

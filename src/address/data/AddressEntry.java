@@ -41,11 +41,7 @@ public class AddressEntry {
 
     /**
      * Constructor that takes in parameters for the various fields of the entry
-<<<<<<< Updated upstream
-     * This version takes in Address & Name objects instead of strings
-=======
      * This version takes in Address and Name objects instead of strings
->>>>>>> Stashed changes
      * @param email The contact's email address
      * @param phone The contact's phone number
      * @param name Name object holding the contact's name
@@ -62,11 +58,7 @@ public class AddressEntry {
 
     /**
      * Constructor that takes in parameters for the various fields of the entry
-<<<<<<< Updated upstream
-     * This version takes in strings instead of Address & Name object
-=======
      * This version takes in strings instead of Address and Name objects
->>>>>>> Stashed changes
      * @param ID Will be used as the the object's ID
      * @param firstName First name of the contact
      * @param lastName Last name of the contact

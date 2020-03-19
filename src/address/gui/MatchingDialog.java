@@ -48,11 +48,7 @@ public class MatchingDialog extends JDialog {
      * The class constructor. Searches the entries for matches,
      *  populates the JList, and adds event listeners to the buttons.
      * @param lname String used as the search input.
-<<<<<<< Updated upstream
-     * @param ab
-=======
-     * @param ab The address book used to search through.
->>>>>>> Stashed changes
+     * @param ab The address book used to search for entries
      */
     public MatchingDialog(String lname, AddressBook ab) {
         setContentPane(contentPane);
