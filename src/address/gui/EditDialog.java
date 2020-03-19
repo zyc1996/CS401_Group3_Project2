@@ -76,6 +76,17 @@ public class EditDialog extends JDialog {
      * @param toEdit The AddressEntry object to change in the database
      */
     public EditDialog(AddressEntry toEdit) {
+
+        //prepopulate the dialog fields with the chosen entry
+            fNameField.setText(toEdit.getName().getFirstName());
+            lNameField.setText(toEdit.getName().getLastName());
+            streetField.setText(toEdit.getAddress().getStreet());
+            cityField.setText(toEdit.getAddress().getCity());
+            stateField.setText(toEdit.getAddress().getState());
+            zipField.setText(Integer.toString(toEdit.getAddress().getZip()));
+            phoneField.setText(toEdit.getPhone());
+            emailField.setText(toEdit.getEmail());
+
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

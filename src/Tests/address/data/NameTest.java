@@ -21,6 +21,15 @@ public class NameTest {
     }
 
     /**
+     * Method for testing Name's toString method with default data
+     */
+    @Test
+    public void testToStringEmpty(){
+        Name name = new Name();
+        assertEquals("\n\n",name.toString());
+    }
+
+    /**
      * Method for testing Name's setter method for the first name
      */
     @Test
@@ -28,6 +37,16 @@ public class NameTest {
         Name name = new Name();
         name.setFirstName("firstname");
         assertEquals("firstname",name.getFirstName());
+    }
+
+    /**
+     * Method for testing Name's setter method for the first name with null
+     */
+    @Test
+    public void setFirstNameNull() {
+        Name name = new Name();
+        name.setFirstName(null);
+        assertEquals(null,name.getFirstName());
     }
 
     /**
@@ -41,6 +60,16 @@ public class NameTest {
     }
 
     /**
+     * Method for testing Name's setter method for the last name with null
+     */
+    @Test
+    public void setLastNameNull() {
+        Name name = new Name();
+        name.setLastName(null);
+        assertEquals(null,name.getLastName());
+    }
+
+    /**
      * Method for testing Name's getter method for the first name
      */
     @Test
@@ -51,6 +80,15 @@ public class NameTest {
     }
 
     /**
+     * Method for testing Name's getter method for the first name with default data
+     */
+    @Test
+    public void getFirstNameEmpty() {
+        Name name = new Name();
+        assertEquals("",name.getFirstName());
+    }
+
+    /**
      * Method for testing Name's getter method for the last name
      */
     @Test
@@ -58,5 +96,14 @@ public class NameTest {
         Name name = new Name();
         name.setLastName("lastname");
         assertEquals("lastname",name.getLastName());
+    }
+
+    /**
+     * Method for testing Name's getter method for the last name with default data
+     */
+    @Test
+    public void getLastNameEmpty() {
+        Name name = new Name();
+        assertEquals("",name.getLastName());
     }
 }
