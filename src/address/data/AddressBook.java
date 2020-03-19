@@ -1,34 +1,33 @@
 package address.data;
-/**
- @author Lauren Dennedy
- @since February 2020
- @version 1.2
- **/
-
 import java.sql.*;
 import java.util.*;
-
 /**
- * The AddressBook class represents an AddressBook
- * with a list for address entries and methods to
- * take in the addresses.
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * purpose: The AddressBook class represents an AddressBook
+ *  with a list for address entries and methods to
+ *  take in the addresses.
  */
 public class AddressBook {
     /**
-     * List of AddressEntry objects to comprise the AddressBook
+     * List of AddressEntry objects that each represent
+     * a contact in the address book
      */
     private ArrayList<AddressEntry> addresses;
 
     /**
-     * Private constructor to initialize the singleton and the addresses list
+     * Class constructor, initializes the AddressEntry list
      */
     public AddressBook() {
         addresses = new ArrayList<>();
     }
 
     /**
-     * Add an entry to the AddressBook's addresses list
-     * @param e The entry added to the list
+     * Add an AddressEntry object to the AddressBook's addresses list
+     * Orders new entries alphabetically by last name, then first name
+     * @param e The entry being added to the list
      */
     public void add(AddressEntry e){
         AddressEntry result;
@@ -57,29 +56,24 @@ public class AddressBook {
     }
 
     /**
-     * Remove an entry from the AddressBook's addresses list in the same time
-     * removes it from the data base
-     * @param e The entry removed from the list
+     * Remove an entry from the AddressBook
+     * Removes the entry from the addresses list
+     * @param e The entry to remove from the Address Book
      */
     public void remove(AddressEntry e) throws SQLException {
+        //remove the entry from the list
         addresses.remove(e);
-
-        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
-        Statement stmt = conn.createStatement ();
-        stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = " + e.getID());
-
-        stmt.close();
-        conn.close();
     }
 
     /**
-     * a helper method that returns a list for the Jlist model
+     * A method that returns the current AddressEntry list
      * @return all the entries in the current address book class in the form of an array list
      */
+    // Used for the JLists in the GUI
     public ArrayList<AddressEntry> getList(){
         // One option would be to
         // return (ArrayList<AddressEntry>)addresses.clone();
-        // but this generates a warning for an unchecked cast, we will use a slower/safer method
+        // but this generates a warning for an unchecked cast, we will use a different method
         ArrayList<AddressEntry> newList = new ArrayList<AddressEntry>();
 
         for (AddressEntry e: addresses) {
@@ -90,8 +84,8 @@ public class AddressBook {
     }
 
     /**
-     * Finds entries matching a string of the last name.
-     * @param startOfLastName The string of the last name to search entries for
+     * Finds entries whose last names start with the given string, case insensitive
+     * @param startOfLastName String to use in search
      * @return A list of matching entries
      */
     public List<AddressEntry> find(String startOfLastName) {
@@ -144,7 +138,7 @@ public class AddressBook {
     }
 
     /**
-     * A method to populate the addresses list with data from Cloud
+     * A method to populate the addresses list with data from the cloud
      */
     public void readFromDB() throws ClassNotFoundException, SQLException {
 

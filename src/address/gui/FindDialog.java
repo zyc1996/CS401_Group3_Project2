@@ -1,5 +1,4 @@
 package address.gui;
-
 import address.data.AddressBook;
 import address.data.AddressEntry;
 
@@ -64,9 +63,5 @@ public class FindDialog extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-
     }
 }

@@ -1,5 +1,4 @@
 package address.gui;
-
 import address.data.AddressBook;
 import address.data.AddressEntry;
 
@@ -11,24 +10,89 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
-
+/**
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * Purpose: This is the main window of the user GUI for this program
+ */
 public class AddressBookGui {
-     JFrame myFrame;
+    /**
+     * JFrame that holds the main window
+     */
+    JFrame myFrame;
 
+    /**
+     * JPanel that holds the frame's layout
+     */
     private JPanel mainPanel;
+
+    /**
+     * JButton to open the add dialog
+     */
     private JButton addButton;
+
+    /**
+     * JButton to open the find dialog
+     */
     private JButton findButton;
-    private JButton quitProgramButton;
+
+    /**
+     * JButton to open the remove dialog
+     */
     private JButton removeButton;
-    private JList<AddressEntry> allList;
-    private JList<AddressEntry> findList;
-    private DefaultListModel<AddressEntry> model;
-    private DefaultListModel<AddressEntry> findModel;
-    private JScrollPane allPane;
-    private JScrollPane findPane;
+
+    /**
+     * JButton to open the edit dialog
+     */
     private JButton editButton;
+
+    /**
+     * JButton to close the GUI, which ends the program
+     */
+    private JButton quitProgramButton;
+
+    /**
+     * The list of all entries in the database
+     */
+    private JList<AddressEntry> allList;
+
+    /**
+     * The list of search results from the find dialog
+     */
+    private JList<AddressEntry> findList;
+
+    /**
+     * Model for the allList
+     */
+    private DefaultListModel<AddressEntry> model;
+
+    /**
+     * Model for the findList
+     */
+    private DefaultListModel<AddressEntry> findModel;
+
+    /**
+     * Pane containing the allList
+     */
+    private JScrollPane allPane;
+
+    /**
+     * Pane containing the findList
+     */
+    private JScrollPane findPane;
+
+    /**
+     * The GUI's local AddressBook object
+     */
     private AddressBook ab;
 
+    /**
+     * Object constructor that adds event listeners to the various buttons
+     * Also attempts to populate the allList with the database information
+     * Refreshes the JList information whenever dialogs are closed
+     */
     public AddressBookGui() {
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -85,12 +149,14 @@ public class AddressBookGui {
 
                 // In progress
                 //push the new entry to data base
-                try {
-                    removeFromDB(dialog.getSelected());
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                if (dialog.getSelected() != null) {
+                    try {
+                        removeFromDB(dialog.getSelected().get(0));
+                    } catch (ClassNotFoundException ex) {
+                        ex.printStackTrace();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
 
                 //fresh read of contents from from database
@@ -189,13 +255,16 @@ public class AddressBookGui {
         });
     }
 
+    /**
+     * GUI initiation method.
+     * Creates local AddressBook object and populates it with information from the database
+     * Also controls various display settings such as layout and JList cell rendering
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
     public void init() throws SQLException, ClassNotFoundException {
         ab = new AddressBook();
-
-        //************************************************************
-        //PLACEHOLDER
         ab.readFromDB();
-        //************************************************************
 
         model = new DefaultListModel<AddressEntry>();
         ArrayList<AddressEntry> newList = ab.getList();
@@ -234,7 +303,13 @@ public class AddressBookGui {
         myFrame.setVisible(true);
     }
 
-    public void addToDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+    /**
+     * Method that adds an AddressEntry object into the database
+     * @param e AddressEntry object to add to the database
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
+    public static void addToDB(AddressEntry e) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
@@ -248,24 +323,33 @@ public class AddressBookGui {
         conn.close();
     }
 
-    public void removeFromDB(List<AddressEntry> entries) throws ClassNotFoundException, SQLException {
+    /**
+     * Method that removes AddressEntry objects from the database
+     * @param entry AddressEntry objects to remove from the database
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
+    public static void removeFromDB(AddressEntry entry) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
         Statement stmt = conn.createStatement();
 
-        if (entries != null && entries.size() > 0) {
-            for (AddressEntry e : entries) {
-                //ID auto increment from data base sequence
-                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + e.getID() + "')");
-            }
+        if (entry != null) {
+            stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + entry.getID() + "')");
         }
 
         stmt.close();
         conn.close();
     }
 
-    public void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+    /**
+     * Method that edits an object in the database
+     * @param e AddressEntry object to add to the database
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
+    public static void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");

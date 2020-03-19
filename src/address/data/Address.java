@@ -1,5 +1,11 @@
 package address.data;
-
+/**
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * Purpose: A class that holds a specific street address including city, state, and zipcode
+ */
 public class Address {
     /**
      * String variables that stores street, city, state

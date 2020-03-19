@@ -1,35 +1,35 @@
-package address.data; /**
- @author Lauren Dennedy
- @since February 2020
- @version 1.2
- **/
-
+package address.data;
 /**
- * The AddressEntry class represents a specific
- * address entry to be placed in an AddressBook object
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * purpose: The AddressEntry class represents a single entry of an Address Book
+ * Contains variables containing the name, address, phone, and email of the contact.
  */
 public class AddressEntry {
     /**
-     * String variables to store email, phone
+     * Private variables to store email & phone strings
      */
     private String email, phone;
 
     /**
-     * private name object
+     * Private name object containing first & last name
      */
     private Name name;
+
     /**
-     * private address object
+     * Private address object
      */
     private Address address;
 
     /**
-     * Integer variable to store the ID
+     * Private ID integer for use as a primary key in the database
      */
     private Integer ID;
 
     /**
-     * Empty constructor for the address entry, sets all values to empty/zero
+     * Empty constructor for the entry, sets all values to empty/zero
      */
     public AddressEntry() {
         name = new Name();
@@ -40,12 +40,13 @@ public class AddressEntry {
     }
 
     /**
-     * constructor with object read in
-     * @param email string that holds email address
-     * @param phone string that hold phone number
-     * @param name object that holds name object
-     * @param address object that holds address object
-     * @param ID integer that holds object ID
+     * Constructor that takes in parameters for the various fields of the entry
+     * This version takes in Address & Name objects instead of strings
+     * @param email The contact's email address
+     * @param phone The contact's phone number
+     * @param name Name object holding the contact's name
+     * @param address Address object holding the contact's address
+     * @param ID Will be used as the the object's ID
      */
     public AddressEntry(String email, String phone, Name name, Address address, int ID) {
         this.email = email;
@@ -56,16 +57,17 @@ public class AddressEntry {
     }
 
     /**
-     * constructor with regular variables
-     * @param firstName string that holds first name
-     * @param lastName string that holds last name
-     * @param street string that holds street name
-     * @param city string that holds city name
-     * @param state string that holds state name
-     * @param zip integer that holds zip code
-     * @param email string that holds email address
-     * @param phone string that holds phone number
-     * @param ID integer that holds ID
+     * Constructor that takes in parameters for the various fields of the entry
+     * This version takes in strings instead of Address & Name object
+     * @param ID Will be used as the the object's ID
+     * @param firstName First name of the contact
+     * @param lastName Last name of the contact
+     * @param street Street field of the class Address object
+     * @param city City field of the class Address object
+     * @param state State of the class Address object
+     * @param zip Zip of the class Address object
+     * @param email The contact's email address
+     * @param phone The contact's phone number
      */
     public AddressEntry(String firstName, String lastName, String street, String city, String state, int zip, String email, String phone, int ID) {
         name = new Name(firstName,lastName);
@@ -114,13 +116,7 @@ public class AddressEntry {
     public int getID() { return ID; }
 
     /**
-     * ID Code Setter
-     * @param ID The integer to be set as the zip code
-     */
-    public void setZip(int ID) { this.ID = ID; }
-
-    /**
-     * name object setter that takes object
+     * Name object setter that takes an object
      * @param name a name object
      */
     public void setName(Name name) {
@@ -128,7 +124,8 @@ public class AddressEntry {
     }
 
     /**
-     * name object setter that takes string
+     * Name object setter
+     * This version takes strings instead of a Name object
      * @param firstName string that holds first name
      * @param lastName string that holds last name
      */
@@ -137,7 +134,7 @@ public class AddressEntry {
     }
 
     /**
-     * address object setter that takes object
+     * address object setter that takes an object
      * @param address an address object
      */
     public void setAddress(Address address) {
@@ -145,7 +142,8 @@ public class AddressEntry {
     }
 
     /**
-     * address object setter that takes strings
+     * address object setter
+     * This version takes strings instead of an Address object
      * @param street string that holds street name
      * @param city string that holds city name
      * @param state string that holds state name
