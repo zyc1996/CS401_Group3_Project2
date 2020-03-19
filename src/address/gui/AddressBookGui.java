@@ -205,8 +205,10 @@ public class AddressBookGui {
                 //clear for a fresh model
                 List<AddressEntry> selected = dialog.getSelected();
                 findModel.clear();
-                for(int i = 0; i < selected.size(); i++){
-                    findModel.addElement(selected.get(i));
+                if (selected != null) {
+                    for(int i = 0; i < selected.size(); i++){
+                        findModel.addElement(selected.get(i));
+                    }
                 }
                 findList.setModel(findModel);
             }
@@ -224,13 +226,15 @@ public class AddressBookGui {
                 //gets the returned change from edit dialog
                 toEdit = dialog.getEdited();
 
-                //Update changes to Database
-                try {
-                    editDB(toEdit);
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                if (toEdit != null) {
+                    //Update changes to Database
+                    try {
+                        editDB(toEdit);
+                    } catch (ClassNotFoundException ex) {
+                        ex.printStackTrace();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
 
                 //fresh read of contents from from database
@@ -251,6 +255,17 @@ public class AddressBookGui {
                 allList.setModel(model);
 
                 //clear for a fresh model
+                List<AddressEntry> existing = new ArrayList<AddressEntry>();
+                for (int i = 0; i < findModel.size(); i++) {
+                    existing.add(findModel.get(i));
+                }
+
+                findModel.clear();
+                for(int i = 0; i < existing.size(); i++){
+                    findModel.addElement(existing.get(i));
+                }
+
+                findList.setModel(findModel);
             }
         });
     }

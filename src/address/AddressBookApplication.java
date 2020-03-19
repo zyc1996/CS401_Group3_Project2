@@ -1,5 +1,7 @@
 package address;
 import address.gui.AddressBookGui;
+import org.junit.*;
+
 import java.sql.SQLException;
  /**
   * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge

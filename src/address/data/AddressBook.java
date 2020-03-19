@@ -92,46 +92,10 @@ public class AddressBook {
         // Final list of all matching entries
         List<AddressEntry> matchingEntries = new ArrayList<>();
 
-        // List of indices that match the searching algorithm
-        List<Integer> matchingEntryIndices = new ArrayList<>();
-
-        // List of just last name strings for comparison
-        List<String> lastNameStrings = new ArrayList<>();
-
-        // Populate the last name strings from the record of addresses
+        // Linear search for anything matching (Not super efficient but easy and lists are short)
         for (AddressEntry entry: addresses) {
-            lastNameStrings.add(entry.getName().getLastName());
-        }
-
-        // Comparator to find the first item containing
-        Comparator<String> containsComparator = (o1, o2) -> {
-            // Modified comparator so any string containing the first chars of last name is considered a complete match
-            if (o1.toLowerCase().startsWith(o2.toLowerCase())) {
-                return 0;
-            } else {
-                return o1.toLowerCase().compareTo(o2.toLowerCase());
-            }
-        };
-
-        // Adds the index of the first matching name to the matching indices list.
-        matchingEntryIndices.add(Collections.binarySearch(lastNameStrings, startOfLastName, containsComparator));
-
-        // Check any others after that
-        int startIndex = matchingEntryIndices.get(0);
-
-        // If at least one match was found, check linearly for any others after that (same last name)
-        if (startIndex >= 0) {
-            int i = startIndex + 1;
-            while (i < lastNameStrings.size() && lastNameStrings.get(i).contains(startOfLastName)) {
-                matchingEntryIndices.add(i);
-                i++;
-            }
-        }
-
-        // Populate the matching entries list from the matching indices and return it
-        for (Integer j: matchingEntryIndices) {
-            if (j >= 0) {
-                matchingEntries.add(addresses.get(j));
+            if(entry.getName().getLastName().toLowerCase().startsWith(startOfLastName.toLowerCase())){
+                matchingEntries.add(entry);
             }
         }
         return matchingEntries;
