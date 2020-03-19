@@ -114,12 +114,6 @@ public class AddressEntry {
     public int getID() { return ID; }
 
     /**
-     * ID Code Setter
-     * @param ID The integer to be set as the zip code
-     */
-    public void setZip(int ID) { this.ID = ID; }
-
-    /**
      * name object setter that takes object
      * @param name a name object
      */

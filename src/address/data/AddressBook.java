@@ -63,13 +63,6 @@ public class AddressBook {
      */
     public void remove(AddressEntry e) throws SQLException {
         addresses.remove(e);
-
-        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
-        Statement stmt = conn.createStatement ();
-        stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = " + e.getID());
-
-        stmt.close();
-        conn.close();
     }
 
     /**
