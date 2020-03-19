@@ -10,8 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AddressBookGui {
      JFrame myFrame;
@@ -31,7 +30,6 @@ public class AddressBookGui {
     private AddressBook ab;
 
     public AddressBookGui() {
-
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,9 +65,9 @@ public class AddressBookGui {
                     model.addElement(newList.get(i));
                 }
                 allList.setModel(model);
-
             }
         });
+
         quitProgramButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,13 +75,13 @@ public class AddressBookGui {
                 System.exit(0);
             }
         });
+
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RemoveDialog dialog = new RemoveDialog(ab);
                 dialog.pack();
                 dialog.setVisible(true);
-
 
                 // In progress
                 //push the new entry to data base
@@ -111,8 +109,26 @@ public class AddressBookGui {
                     model.addElement(newList.get(i));
                 }
                 allList.setModel(model);
+
+                //clear for a fresh model
+
+                List<AddressEntry> existing = new ArrayList<AddressEntry>();
+                for (int i = 0; i < findModel.size(); i++) {
+                    existing.add(findModel.get(i));
+                }
+
+                List<AddressEntry> removed = dialog.getSelected();
+                findModel.clear();
+                for(int i = 0; i < existing.size(); i++){
+                    if (existing.get(i) != removed.get(0)) {
+                        findModel.addElement(existing.get(i));
+                    }
+                }
+
+                findList.setModel(findModel);
             }
         });
+
         findButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
