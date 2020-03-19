@@ -1,29 +1,25 @@
 package address;
-/**
- @author Lauren Dennedy
- @since February 2020
- @version 1.2
- **/
-
 import address.gui.AddressBookGui;
-
 import java.sql.SQLException;
-
-/**
- * The Main class used to start the menu.
- */
+ /**
+  * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+  * @since  March 2020, SDK 13
+  * @version 2.0
+  *
+  * purpose: Main class of the program. Initiates the user GUI
+  */
 public class AddressBookApplication {
     /**
-     * The main method to start the address.AddressBookApplication
+     * The main method that starts the program GUI
      * @param args Arguments to accept when calling main
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         /**
-         * A new GUI declaration to create the Address Book Frame class
+         * A new GUI declaration to create the Address Book Frame clas
          */
         AddressBookGui myGui = new AddressBookGui();
 
-        //initialize it here
+        // Initialize program GUI
         myGui.init();
 
         // Run test classes:

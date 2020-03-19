@@ -1,25 +1,79 @@
 package address.gui;
-
 import address.data.AddressEntry;
 
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * Purpose: The dialog for adding a new AddressEntry to the database
+ */
 public class AddDialog extends JDialog {
+    /**
+     * JPanel containing all dialog elements
+     */
     private JPanel contentPane;
+
+    /**
+     * Dialog OK button
+     */
     private JButton buttonOK;
+
+    /**
+     * Dialog Cancel button
+     */
     private JButton buttonCancel;
+
+    /**
+     * Dialog OK button
+     */
     private JTextField fNameField;
+
+    /**
+     * Object name entry field
+     */
     private JTextField lNameField;
+
+    /**
+     * Object street entry field
+     */
     private JTextField streetField;
+
+    /**
+     * Object city field
+     */
     private JTextField cityField;
+
+    /**
+     * Object state field
+     */
     private JTextField stateField;
+
+    /**
+     * Object zip entry field
+     */
     private JTextField zipField;
+
+    /**
+     * Object phone entry field
+     */
     private JTextField phoneField;
+
+    /**
+     * Object email entry field
+     */
     private JTextField emailField;
 
+    /**
+     * The resulting AddressEntry object
+     */
     private AddressEntry ae;
 
+    /**
+     * Class constructor that adds event listeners to the GUI buttons
+     */
     public AddDialog() {
         setContentPane(contentPane);
         setModal(true);
@@ -53,6 +107,10 @@ public class AddDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+
+    /**
+     * Method that attempts to add object to the database when OK button is pushed
+     */
     private void onOK() {
         // add your code here
         Boolean valid = true;
@@ -129,22 +187,21 @@ public class AddDialog extends JDialog {
             JOptionPane.showMessageDialog(null, result);
         }
 
-
         dispose();
     }
 
+    /**
+     * Method that will simply close the dialog when cancel button is pressed
+     */
     private void onCancel() {
         // add your code here if necessary
         dispose();
     }
 
-    public static void main(String[] args) {
-        AddDialog dialog = new AddDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
-
+    /**
+     * Getter for the AddressEntry object created through the dialog
+     * @return AddressEntry object
+     */
     public AddressEntry getEntry(){
         return ae;
     }

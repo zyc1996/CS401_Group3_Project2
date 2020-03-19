@@ -1,5 +1,11 @@
 package address.data;
-
+/**
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * Purpose: A class that holds the name of a particular contact in an address book
+ */
 public class Name {
     /**
      * String variables to store first name, last name
@@ -7,7 +13,7 @@ public class Name {
     private String firstName, lastName;
 
     /**
-     * empty constructor
+     * Empty constructor
      */
     public Name(){
         firstName = "";
@@ -15,7 +21,7 @@ public class Name {
     }
 
     /**
-     * default constructor
+     * The default constructor
      * @param firstName string that holds first name
      * @param lastName string that holds last name
      */
@@ -25,8 +31,8 @@ public class Name {
     }
 
     /**
-     * coverts object to string for output
-     * @return object string
+     * Coverts object's name fields to a string for output
+     * @return A string in the format "FirstName\n LastName\n"
      */
     @Override
     public String toString() {
@@ -34,7 +40,7 @@ public class Name {
     }
 
     /**
-     * varies system generated setter
+     * Setter method for first name
      * @param firstName string that holds first name
      */
     public void setFirstName(String firstName) {
@@ -42,7 +48,7 @@ public class Name {
     }
 
     /**
-     * varies system generated setter
+     * Setter method for last name
      * @param lastName string that holds last name
      */
     public void setLastName(String lastName) {
@@ -50,7 +56,7 @@ public class Name {
     }
 
     /**
-     * varies system generated getter
+     * Getter method for first name
      * @return first name
      */
     public String getFirstName() {
@@ -58,7 +64,7 @@ public class Name {
     }
 
     /**
-     * varies system generated getter
+     * Getter method for last name
      * @return last name
      */
     public String getLastName() {
