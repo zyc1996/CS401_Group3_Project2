@@ -65,9 +65,6 @@ public class MatchingDialog extends JDialog {
 
     private List<AddressEntry> onOK(AddressBook ab) {
         dispose();
-        for (AddressEntry e: MatchingList.getSelectedValuesList()) {
-            System.out.println(e);
-        }
         return MatchingList.getSelectedValuesList();
 
     }
