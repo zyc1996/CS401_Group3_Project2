@@ -148,13 +148,15 @@ public class AddressBookGui {
                 dialog.setVisible(true);
 
                 // In progress
-                // push the new entry to data base
-                try {
-                    removeFromDB(dialog.getSelected());
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                //push the new entry to data base
+                if (dialog.getSelected() != null) {
+                    try {
+                        removeFromDB(dialog.getSelected().get(0));
+                    } catch (ClassNotFoundException ex) {
+                        ex.printStackTrace();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
 
                 //fresh read of contents from from database
@@ -307,7 +309,7 @@ public class AddressBookGui {
      * @throws SQLException if there is an error in the SQL exectution
      * @throws ClassNotFoundException if there is an error locating class
      */
-    public void addToDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+    public static void addToDB(AddressEntry e) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
@@ -323,21 +325,18 @@ public class AddressBookGui {
 
     /**
      * Method that removes AddressEntry objects from the database
-     * @param entries AddressEntry objects to remove from the database
+     * @param entry AddressEntry objects to remove from the database
      * @throws SQLException if there is an error in the SQL exectution
      * @throws ClassNotFoundException if there is an error locating class
      */
-    public void removeFromDB(List<AddressEntry> entries) throws ClassNotFoundException, SQLException {
+    public static void removeFromDB(AddressEntry entry) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
         Statement stmt = conn.createStatement();
 
-        if (entries != null && entries.size() > 0) {
-            for (AddressEntry e : entries) {
-                //ID auto increment from data base sequence
-                stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + e.getID() + "')");
-            }
+        if (entry != null) {
+            stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = ('" + entry.getID() + "')");
         }
 
         stmt.close();
@@ -350,7 +349,7 @@ public class AddressBookGui {
      * @throws SQLException if there is an error in the SQL exectution
      * @throws ClassNotFoundException if there is an error locating class
      */
-    public void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+    public static void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
