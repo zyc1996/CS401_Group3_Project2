@@ -238,7 +238,7 @@ public class AddressBookGui {
         myFrame.setVisible(true);
     }
 
-    public void addToDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+    public static void addToDB(AddressEntry e) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
@@ -252,7 +252,7 @@ public class AddressBookGui {
         conn.close();
     }
 
-    public void removeFromDB(AddressEntry entry) throws ClassNotFoundException, SQLException {
+    public static void removeFromDB(AddressEntry entry) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
@@ -266,7 +266,7 @@ public class AddressBookGui {
         conn.close();
     }
 
-    public void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
+    public static void editDB(AddressEntry e) throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection conn =
                 DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
