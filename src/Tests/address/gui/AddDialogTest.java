@@ -7,10 +7,6 @@ import static org.junit.Assert.*;
 public class AddDialogTest {
 
     @Test
-    public void main() {
-    }
-
-    @Test
     public void getEntry() {
     }
 }

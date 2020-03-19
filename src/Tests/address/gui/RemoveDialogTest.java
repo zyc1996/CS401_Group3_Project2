@@ -9,8 +9,4 @@ public class RemoveDialogTest {
     @Test
     public void getSelected() {
     }
-
-    @Test
-    public void main() {
-    }
 }

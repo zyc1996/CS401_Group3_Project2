@@ -138,13 +138,6 @@ public class AddDialog extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        AddDialog dialog = new AddDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
-
     public AddressEntry getEntry(){
         return ae;
     }

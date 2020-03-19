@@ -10,7 +10,4 @@ public class FindDialogTest {
     public void getSelected() {
     }
 
-    @Test
-    public void main() {
-    }
 }
