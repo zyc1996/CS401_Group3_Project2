@@ -26,17 +26,6 @@ public class AddressBook {
         addresses = new ArrayList<>();
     }
 
-//    /**
-//     * Public AddressBook Getter to call the private constructor
-//     * @return the AddressBook to be used as the singleton
-//     */
-//    public AddressBook getAddressBook() {
-//        if (addressBook == null) {
-//            addressBook = new AddressBook();
-//        }
-//        return addressBook;
-//    }
-
     /**
      * Add an entry to the AddressBook's addresses list
      * @param e The entry added to the list
@@ -68,36 +57,18 @@ public class AddressBook {
     }
 
     /**
-     * Remove an entry from the AddressBook's addresses list
-     * TODO: This method cannot remove solely on the case of lastName alone, because
-     *       then it could remove more than one entry at a time and the user needs
-     *       a choice in that. This method takes in an object for removal instead,
-     *       and the choice granted by searching for last name is handled in the
-     *       menu instead.
-     * Unsure if the above to do still applies when implement with GUI
+     * Remove an entry from the AddressBook's addresses list in the same time
+     * removes it from the data base
      * @param e The entry removed from the list
      */
     public void remove(AddressEntry e) throws SQLException {
         addresses.remove(e);
-
-        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:mcs1003/85kTyIfb@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
-        Statement stmt = conn.createStatement ();
-        stmt.executeQuery("DELETE FROM ADDRESSENTRYTABLE WHERE ID = " + e.getID());
-
-        stmt.close();
-        conn.close();
     }
 
     /**
-     * Prints out the entries of the addresses list with their toString methods
+     * a helper method that returns a list for the Jlist model
+     * @return all the entries in the current address book class in the form of an array list
      */
-    public void list() {
-        for (AddressEntry e: addresses) {
-            System.out.print(addresses.indexOf(e) + 1 + ". ");
-            System.out.println(e);
-        }
-    }
-
     public ArrayList<AddressEntry> getList(){
         // One option would be to
         // return (ArrayList<AddressEntry>)addresses.clone();
@@ -170,6 +141,8 @@ public class AddressBook {
      */
     public void readFromDB() throws ClassNotFoundException, SQLException {
 
+        //clear of the current address book for a fresh pull from the online DB
+        //for most recent updates and items
         addresses.clear();
 
         // code from data base exercise
@@ -181,6 +154,10 @@ public class AddressBook {
 
         while(rset.next()){
             //visit each column to pull out their data
+            /**
+             * some place holding variables that holds pulled temporary data and
+             * to be formatted into the current address book
+             */
             String fName, lName, street, city, state, email, tel;
             int zip, ID ;
             //modify it via the order of data base
