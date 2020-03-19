@@ -1,5 +1,4 @@
 package address.gui;
-
 import address.data.AddressBook;
 import address.data.AddressEntry;
 

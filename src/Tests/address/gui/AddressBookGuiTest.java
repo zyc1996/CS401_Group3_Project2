@@ -9,9 +9,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static org.junit.Assert.*;
-
+/**
+ * @author Lauren Dennedy, Yueheng Zheng, John Gilcreast, John Berge
+ * @since  March 2020, SDK 13
+ * @version 2.0
+ *
+ * Purpose: The JUnit class for testing AddressBookGui
+ */
 public class AddressBookGuiTest {
 
+    /**
+     * Method to test database connectivity and correct addition of an entry
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
     @Test
     public void addToDB() throws SQLException, ClassNotFoundException {
         //create a new entry
@@ -64,6 +75,11 @@ public class AddressBookGuiTest {
         assertEquals(ae.toString(),test.get(test.size()-1).toString());
     }
 
+    /**
+     * Method to test removal from database
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
     @Test
     public void testRemoveFromDB() throws SQLException, ClassNotFoundException {
         AddressBook ab = new AddressBook();
@@ -85,6 +101,11 @@ public class AddressBookGuiTest {
         }
     }
 
+    /**
+     * Method to test editing an entry in the database
+     * @throws SQLException if there is an error in the SQL exectution
+     * @throws ClassNotFoundException if there is an error locating class
+     */
     @Test
     public void TestEditDB() throws SQLException, ClassNotFoundException {
         AddressBook ab = new AddressBook();
