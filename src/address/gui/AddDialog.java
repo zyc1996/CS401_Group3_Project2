@@ -181,13 +181,10 @@ public class AddDialog extends JDialog {
         if(valid){
             //ADD TO DATABASE
             ae = newEntry;
-            JOptionPane.showMessageDialog(null, "Valid");
-            //dispose();
+            dispose();
         }else{
             JOptionPane.showMessageDialog(null, result);
         }
-
-        dispose();
     }
 
     /**

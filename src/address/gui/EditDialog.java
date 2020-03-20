@@ -76,7 +76,10 @@ public class EditDialog extends JDialog {
      * @param toEdit The AddressEntry object to change in the database
      */
     public EditDialog(AddressEntry toEdit) {
-
+        if(toEdit == null){
+            JOptionPane.showMessageDialog(null, "Please select an entry from search results");
+            return;
+        }
         //prepopulate the dialog fields with the chosen entry
             fNameField.setText(toEdit.getName().getFirstName());
             lNameField.setText(toEdit.getName().getLastName());
@@ -131,62 +134,30 @@ public class EditDialog extends JDialog {
 
         // different from add, if a text field is empty, that means no changes to the entry attribute
         String line = fNameField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.getName().setFirstName(line);
-        }
+        toEdit.getName().setFirstName(line);
         line = lNameField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.getName().setLastName(line);
-        }
+        toEdit.getName().setLastName(line);
         line = streetField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.getAddress().setStreet(line);
-        }
+        toEdit.getAddress().setStreet(line);
         line = cityField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.getAddress().setCity(line);
-        }
+        toEdit.getAddress().setCity(line);
         line = stateField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.getAddress().setState(line);
-        }
+        toEdit.getAddress().setState(line);
         try {
             line = zipField.getText();
-            if (line.length() == 0){
-                //will be no changes
-            }else {
-                toEdit.getAddress().setZip(Integer.parseInt(line));
-            }
+            toEdit.getAddress().setZip(Integer.parseInt(line));
         }catch (NumberFormatException e){
             result = result + "ZIP code must be a number\n";
             valid = false;
         }
         line = phoneField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.setPhone(line);
-        }
+        toEdit.setPhone(line);
         line = emailField.getText();
-        if (line.length() == 0){
-            //will be no changes
-        }else{
-            toEdit.setEmail(line);
-        }
+        toEdit.setEmail(line);
+
         if(valid){
             //make confirmed to changed content and store as dialog entry variable
             edited = toEdit;
-            JOptionPane.showMessageDialog(null, "Valid");
             //dispose();
         }else{
             JOptionPane.showMessageDialog(null, result);

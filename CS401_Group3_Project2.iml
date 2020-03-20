@@ -21,7 +21,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/instantclient_12_2/ojdbc8.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/instantclient_19_5/ojdbc8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
